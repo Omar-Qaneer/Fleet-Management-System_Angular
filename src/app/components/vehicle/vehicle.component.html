@@ -1,44 +1,67 @@
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Vehicle ID</th>
-      <th>Vehicle Number</th>
-      <th>Vehicle Type</th>
-      <th>Last Direction</th>
-      <th>Last Status</th>
-      <th>Last Address</th>
-      <th>Last Latitude</th>
-      <th>Last Longitude</th>
-      <th>Show More</th>
-    </tr>
-  </thead>
-  <tbody>
-    @for(vehicle of vehicles; track vehicle.VehicleID)
-    {
-    <tr>
-      <td>{{ vehicle.VehicleID }}</td>
-      <td>{{ vehicle.VehicleNumber }}</td>
-      <td>{{ vehicle.VehicleType }}</td>
-      <td>{{ vehicle.LastDirection }}</td>
-      <td>{{ vehicle.LastStatus }}</td>
-      <td>{{ vehicle.LastAddress }}</td>
-      <td>{{ vehicle.LastLatitude }}</td>
-      <td>{{ vehicle.LastLongitude }}</td>
-      <td>
-        <button class="btn btn-sm btn-info">Show More</button> </td>
-    </tr>
-  }
-  </tbody>
-</table>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
 
-<div>
-  @if(isLoading){
-    Loading vehicles...
-  }
-  </div>
-<div>
-  @if(error){
-    Error fetching vehicles: {{ error }}
-  }
+      <!-- VehicleID Column -->
+      <ng-container matColumnDef="VehicleID">
+        <th mat-header-cell *matHeaderCellDef> Vehicle ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.VehicleID}} </td>
+      </ng-container>
+
+      <!-- VehicleNumber Column -->
+      <ng-container matColumnDef="VehicleNumber">
+        <th mat-header-cell *matHeaderCellDef> Vehicle Number </th>
+        <td mat-cell *matCellDef="let element"> {{element.VehicleNumber}} </td>
+      </ng-container>
+
+      <!-- VehicleType Column -->
+      <ng-container matColumnDef="VehicleType">
+        <th mat-header-cell *matHeaderCellDef> Vehicle Type </th>
+        <td mat-cell *matCellDef="let element"> {{element.VehicleType}} </td>
+      </ng-container>
+
+      <!-- LastDirection Column -->
+      <ng-container matColumnDef="LastDirection">
+        <th mat-header-cell *matHeaderCellDef> Last Direction </th>
+        <td mat-cell *matCellDef="let element"> {{element.LastDirection}} </td>
+      </ng-container>
+
+      <!-- LastStatus Column -->
+      <ng-container matColumnDef="LastStatus">
+        <th mat-header-cell *matHeaderCellDef> Last Status </th>
+        <td mat-cell *matCellDef="let element"> {{element.LastStatus}} </td>
+      </ng-container>
+
+      <!-- LastAddress Column -->
+      <ng-container matColumnDef="LastAddress">
+        <th mat-header-cell *matHeaderCellDef> Last Address </th>
+        <td mat-cell *matCellDef="let element"> {{element.LastAddress}} </td>
+      </ng-container>
+
+      <!-- LastLatitude Column -->
+      <ng-container matColumnDef="LastLatitude">
+        <th mat-header-cell *matHeaderCellDef> Last Latitude </th>
+        <td mat-cell *matCellDef="let element"> {{element.LastLatitude}} </td>
+      </ng-container>
+
+      <!-- LastLongitude Column -->
+      <ng-container matColumnDef="LastLongitude">
+        <th mat-header-cell *matHeaderCellDef> Last Longitude </th>
+        <td mat-cell *matCellDef="let element"> {{element.LastLongitude}} </td>
+      </ng-container>
+
+      <!-- ShowMore Column -->
+      <ng-container matColumnDef="ShowMore">
+        <th mat-header-cell *matHeaderCellDef> Show More </th>
+        <td mat-cell *matCellDef="let row"> <button mat-raised-button color="primary">Show More</button> </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                   showFirstLastButtons
+                   aria-label="Select page of periodic elements">
+    </mat-paginator>
   </div>
 
