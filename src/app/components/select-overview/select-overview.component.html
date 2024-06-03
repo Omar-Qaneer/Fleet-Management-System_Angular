@@ -1,0 +1,8 @@
+<mat-form-field>
+  <mat-label>Driver Name</mat-label>
+  <mat-select [(value)]="selectedDriver" (valueChange)="sendMessage($event)">
+    @for (driverName of driversNames; track driverName) {
+      <mat-option [value]="driverName">{{driverName}}</mat-option>
+    }
+  </mat-select>
+</mat-form-field>

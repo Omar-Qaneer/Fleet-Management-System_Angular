@@ -1,0 +1,38 @@
+<h2 mat-dialog-title>Vehicle Information</h2>
+<mat-dialog-content>
+  <ul>
+    <li>
+        <h4>Vehicle Number: {{data.VehicleNumber}}</h4>
+
+    </li>
+    <li>
+        <h4>Vehicle Type: {{data.VehicleType}}</h4>
+
+    </li>
+    <li>
+      <app-select-overview (messageEvent)="receiveMessage($event)" [driversNames]="data.DriverName"></app-select-overview>
+    </li>
+    <li>
+    <h4>Phone Number: {{data.PhoneNumber[index]}}</h4>
+  </li>
+  <li>
+  <h4>Last Position: {{data.LastPosition}}</h4>
+</li>
+<li>
+<h4>Vehicle Make: {{data.VehicleMake}}</h4>
+</li>
+<li>
+<h4>Vehicle Model: {{data.VehicleModel}}</h4>
+</li>
+<li>
+<h4>Last GPS Time: {{data.LastGPSTime}}</h4>
+</li>
+<li>
+<h4>Last GPS Speed: {{data.LastGPSSpeed}}</h4>
+</li>
+<li>
+<h4>Last Address: {{data.LastAddress}}</h4>
+</li>
+  </ul>
+</mat-dialog-content>
+

@@ -10,5 +10,7 @@ export class VehiclesService {
 
   constructor(private http:HttpClient) {   }
   getVehicles=():Observable<GVAR>=> this.http.get<GVAR>("https://localhost:7051/api/Vehicle/VehiclesInfo")
+  getVehicle=(id: number):Observable<GVAR>=> this.http.get<GVAR>(`https://localhost:7051/api/VehiclesInfo/${id}`)
+
 
 }
