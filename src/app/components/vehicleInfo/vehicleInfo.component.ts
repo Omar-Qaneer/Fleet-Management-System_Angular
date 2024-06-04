@@ -15,10 +15,10 @@ import { VehicleInfo } from '../../types/vehicleInfo';
   selector: 'app-vehicle',
   standalone: true,
   imports: [MatTableModule, MatPaginatorModule,MatButtonModule],
-  templateUrl: './vehicle.component.html',
-  styleUrl: './vehicle.component.css'
+  templateUrl: './vehicleInfo.component.html',
+  styleUrl: './vehicleInfo.component.css'
 })
-export class VehicleComponent implements OnInit {
+export class VehicleInfoComponent implements OnInit {
   displayedColumns: string[] = ['VehicleID', 'VehicleNumber', 'VehicleType', 'LastDirection','LastStatus','LastAddress','LastLatitude','LastLongitude','ShowMore'];
   ELEMENT_DATA: Vehicle[] = [];
   dataSource = new MatTableDataSource<Vehicle>(this.ELEMENT_DATA);
