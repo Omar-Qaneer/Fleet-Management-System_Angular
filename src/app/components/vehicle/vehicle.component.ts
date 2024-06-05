@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, inject } from '@angular/core';
-import { RouterOutlet, RouterLink } from '@angular/router';
+import { RouterOutlet, RouterLink, Router, NavigationExtras } from '@angular/router';
 import { Vehicle } from '../../types/vehicle';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
@@ -28,9 +28,10 @@ export class VehicleComponent implements OnInit {
   error: string | null = null;
 
   vehicleService = inject(VehiclesService);
+  constructor(private router: Router){}
 
   ngOnInit(): void {
-    this.vehicleService.getVehiclesInfo().subscribe({
+    this.vehicleService.getVehicles().subscribe({
       next: (response) => {
         var Gvar = new GVAR();
         Gvar = response;
@@ -47,7 +48,16 @@ export class VehicleComponent implements OnInit {
 
   async deleteVehicle(id: number):Promise<void> {
     }
-    async editVehicle(vehicle: Vehicle):Promise<void> {
+
+    editVehicle(vehicle: Vehicle) {
+      const navigationExtras: NavigationExtras = {
+        state: {
+          vehicle: vehicle
+        }
+      };
+      console.log(navigationExtras);
+      this.router.navigate(['/edit-vehicle'],navigationExtras);
+
 
     }
 
