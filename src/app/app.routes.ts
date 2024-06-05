@@ -6,6 +6,7 @@ import { EditVehicleFormComponent } from './components/edit-vehicle-form/edit-ve
 import { DriverComponent } from './components/driver/driver.component';
 import { AddDriverFormComponent } from './components/add-driver-form/add-driver-form.component';
 import { EditDriverFormComponent } from './components/edit-driver-form/edit-driver-form.component';
+import { GeofenceComponent } from './components/geofence/geofence.component';
 
 export const routes: Routes = [
   { path: 'vehiclesInfo', component: VehicleInfoComponent },
@@ -15,4 +16,5 @@ export const routes: Routes = [
   { path: 'drivers', component: DriverComponent },
   { path: 'create-driver', component: AddDriverFormComponent },
   { path: 'edit-driver', component: EditDriverFormComponent },
+  { path: 'geofence', component: GeofenceComponent },
 ];
