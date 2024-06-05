@@ -13,7 +13,7 @@ export class VehiclesService {
   getVehicle=(id: number):Observable<GVAR>=> this.http.get<GVAR>(`https://localhost:7051/api/VehiclesInfo/${id}`)
   addVehicle=(Gvar: GVAR):Observable<GVAR>=> this.http.post<GVAR>("https://localhost:7051/api/Vehicle",Gvar)
   editVehicle=(Gvar: GVAR):Observable<GVAR>=> this.http.put<GVAR>("https://localhost:7051/api/Vehicle",Gvar)
-  //deleteVehicle=(Gvar: GVAR):Observable<GVAR>=> this.http.put<GVAR>("https://localhost:7051/api/Vehicles",GVAR)
+  deleteVehicle=(id: number):Observable<GVAR>=> this.http.delete<GVAR>(`https://localhost:7051/api/Vehicle/${id}`)
   getVehicles=():Observable<GVAR>=> this.http.get<GVAR>("https://localhost:7051/api/Vehicle")
 
 

@@ -4,6 +4,7 @@ import { Vehicle } from '../../types/vehicle';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import {MatSnackBar} from '@angular/material/snack-bar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { VehiclesService } from '../../services/vehicles.service';
 import { GVAR } from '../../../GVAR';
@@ -21,6 +22,7 @@ export class VehicleComponent implements OnInit {
   ELEMENT_DATA: Vehicle[] = [];
   dataSource = new MatTableDataSource<Vehicle>(this.ELEMENT_DATA);
   vehicles: Vehicle[]=[];
+  status!: string;
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -28,7 +30,7 @@ export class VehicleComponent implements OnInit {
   error: string | null = null;
 
   vehicleService = inject(VehiclesService);
-  constructor(private router: Router){}
+  constructor(private router: Router,private _snackBar: MatSnackBar){}
 
   ngOnInit(): void {
     this.vehicleService.getVehicles().subscribe({
@@ -47,6 +49,28 @@ export class VehicleComponent implements OnInit {
   }
 
   async deleteVehicle(id: number):Promise<void> {
+    const response = await this.vehicleService.deleteVehicle(id).toPromise();
+    this.status = response?.DicOfDic.Tags["STS"];
+    console.log(response);
+    if(this.status == "1"){
+      this._snackBar.open("Vehicle deleted Successfully", "Ok");
+      this.router.navigate(['/vehicles']);
+    }else{
+      this._snackBar.open("Vehicle isn't deleted Successfully", "Ok");
+    }
+    this.vehicleService.getVehicles().subscribe({
+      next: (response) => {
+        var Gvar = new GVAR();
+        Gvar = response;
+        this.vehicles = response.DicOfDT["Vehicles"];
+        this.ELEMENT_DATA = response.DicOfDT["Vehicles"];
+        this.dataSource.data = response.DicOfDT["Vehicles"];
+        console.log(response);
+      },
+      error: (error) => {
+        this.error = error.message;
+      }
+    });
     }
 
     editVehicle(vehicle: Vehicle) {
