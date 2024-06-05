@@ -1,0 +1,18 @@
+<div class="form-container" >
+<form class="example-form" [formGroup]="vehicleForm"  (ngSubmit)="addVehicle()">
+  <mat-form-field class="example-full-width">
+    <mat-label>Vehicle Number</mat-label>
+    <input matInput placeholder="Ex. 345777" formControlName="vehicleNumber">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Vehicle Type</mat-label>
+    <input matInput placeholder="Ex. Car" formControlName="vehicleType">
+  </mat-form-field>
+
+  <div class="button-wrapper">
+    <button mat-raised-button color="primary" > Add </button>
+  </div>
+</form>
+</div>
+

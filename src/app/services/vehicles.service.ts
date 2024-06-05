@@ -11,6 +11,7 @@ export class VehiclesService {
   constructor(private http:HttpClient) {   }
   getVehiclesInfo=():Observable<GVAR>=> this.http.get<GVAR>("https://localhost:7051/api/Vehicle/VehiclesInfo")
   getVehicle=(id: number):Observable<GVAR>=> this.http.get<GVAR>(`https://localhost:7051/api/VehiclesInfo/${id}`)
+  addVehicle=(Gvar: GVAR):Observable<GVAR>=> this.http.post<GVAR>("https://localhost:7051/api/Vehicle",Gvar)
   //editVehicle=(Gvar: GVAR):Observable<GVAR>=> this.http.put<GVAR>("https://localhost:7051/api/Vehicles",GVAR)
   //deleteVehicle=(Gvar: GVAR):Observable<GVAR>=> this.http.put<GVAR>("https://localhost:7051/api/Vehicles",GVAR)
   getVehicles=():Observable<GVAR>=> this.http.get<GVAR>("https://localhost:7051/api/Vehicle")

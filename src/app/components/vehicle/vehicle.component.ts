@@ -51,10 +51,6 @@ export class VehicleComponent implements OnInit {
 
     }
 
-    async addVehicle():Promise<void> {
-
-    }
-
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
