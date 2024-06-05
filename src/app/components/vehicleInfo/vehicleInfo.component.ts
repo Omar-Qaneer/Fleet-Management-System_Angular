@@ -1,6 +1,6 @@
 import { Component, OnInit, inject,AfterViewInit, ViewChild } from '@angular/core';
 import { VehiclesService } from '../../services/vehicles.service';
-import { Vehicle } from '../../types/vehicle';
+import { VehicleDetails } from '../../types/vehicleDetails';
 import { Observable } from 'rxjs';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
@@ -12,7 +12,7 @@ import { VehicleInfo } from '../../types/vehicleInfo';
 
 
 @Component({
-  selector: 'app-vehicle',
+  selector: 'app-vehicleInfo',
   standalone: true,
   imports: [MatTableModule, MatPaginatorModule,MatButtonModule],
   templateUrl: './vehicleInfo.component.html',
@@ -20,13 +20,13 @@ import { VehicleInfo } from '../../types/vehicleInfo';
 })
 export class VehicleInfoComponent implements OnInit {
   displayedColumns: string[] = ['VehicleID', 'VehicleNumber', 'VehicleType', 'LastDirection','LastStatus','LastAddress','LastLatitude','LastLongitude','ShowMore'];
-  ELEMENT_DATA: Vehicle[] = [];
-  dataSource = new MatTableDataSource<Vehicle>(this.ELEMENT_DATA);
+  ELEMENT_DATA: VehicleDetails[] = [];
+  dataSource = new MatTableDataSource<VehicleDetails>(this.ELEMENT_DATA);
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
 
 
-  vehicles: Vehicle[]=[];
+  vehicles: VehicleDetails[]=[];
   vehicleInfo:VehicleInfo = {
     VehicleNumber: 0,
     VehicleType: '',
@@ -46,7 +46,7 @@ export class VehicleInfoComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLoading = true;
-    this.vehicleService.getVehicles().subscribe({
+    this.vehicleService.getVehiclesInfo().subscribe({
       next: (response) => {
         var Gvar = new GVAR();
         Gvar = response;

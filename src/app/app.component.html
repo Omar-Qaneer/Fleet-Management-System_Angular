@@ -1,9 +1,10 @@
-<mat-toolbar color="accent">
-  <button mat-icon-button class="mr-4" routerLink="/">
-    <mat-icon>home</mat-icon>
-  </button>
+<mat-toolbar color="accent" fxLayout="row" fxLayoutAlign="start center">
   <span>Fleet Management App</span>
+  <span class="spacer"></span>
+  <a routerLink="vehiclesInfo" class="toolbar-link">Home</a>
+  <a routerLink="vehicles" class="toolbar-link">Vehicles</a>
+  <a routerLink="#" class="toolbar-link">Drivers</a>
+  <a routerLink="#" class="toolbar-link">Geofences</a>
 </mat-toolbar>
-  <app-vehicle></app-vehicle>
   <router-outlet></router-outlet>
 
