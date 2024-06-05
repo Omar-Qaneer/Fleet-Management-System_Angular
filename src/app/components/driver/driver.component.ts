@@ -47,6 +47,31 @@ export class DriverComponent implements OnInit {
     });
   }
 
+  async deleteDriver(id: number):Promise<void> {
+    const response = await this.driverService.deleteDriver(id).toPromise();
+    this.status = response?.DicOfDic.Tags["STS"];
+    console.log(response);
+    if(this.status == "1"){
+      this._snackBar.open("Driver deleted Successfully", "Ok");
+      this.router.navigate(['/drivers']);
+    }else{
+      this._snackBar.open("Driver isn't deleted Successfully", "Ok");
+    }
+    this.driverService.getDrivers().subscribe({
+      next: (response) => {
+        var Gvar = new GVAR();
+        Gvar = response;
+        this.drivers = response.DicOfDT["Drivers"];
+        this.ELEMENT_DATA = response.DicOfDT["Drivers"];
+        this.dataSource.data = response.DicOfDT["Drivers"];
+        console.log(response);
+      },
+      error: (error) => {
+        this.error = error.message;
+      }
+    });
+    }
+
   editDriver(driver: Driver) {
     const navigationExtras: NavigationExtras = {
       state: {

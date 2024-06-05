@@ -13,6 +13,7 @@ export class DriverService {
   getDrivers=():Observable<GVAR>=> this.http.get<GVAR>("https://localhost:7051/api/Driver");
   addDriver=(Gvar: GVAR):Observable<GVAR>=> this.http.post<GVAR>("https://localhost:7051/api/Driver",Gvar);
   editDriver=(Gvar: GVAR):Observable<GVAR>=> this.http.put<GVAR>("https://localhost:7051/api/Driver",Gvar);
+  deleteDriver=(id: number):Observable<GVAR>=> this.http.delete<GVAR>(`https://localhost:7051/api/Driver/${id}`)
 
 
 }
