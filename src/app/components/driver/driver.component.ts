@@ -47,6 +47,16 @@ export class DriverComponent implements OnInit {
     });
   }
 
+  editDriver(driver: Driver) {
+    const navigationExtras: NavigationExtras = {
+      state: {
+        driver: driver
+      }
+    };
+    console.log(navigationExtras);
+    this.router.navigate(['/edit-driver'],navigationExtras);
+  }
+
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }

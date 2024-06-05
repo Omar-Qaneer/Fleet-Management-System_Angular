@@ -5,6 +5,7 @@ import { AddVehicleFormComponent } from './components/add-vehicle-form/add-vehic
 import { EditVehicleFormComponent } from './components/edit-vehicle-form/edit-vehicle-form.component';
 import { DriverComponent } from './components/driver/driver.component';
 import { AddDriverFormComponent } from './components/add-driver-form/add-driver-form.component';
+import { EditDriverFormComponent } from './components/edit-driver-form/edit-driver-form.component';
 
 export const routes: Routes = [
   { path: 'vehiclesInfo', component: VehicleInfoComponent },
@@ -13,4 +14,5 @@ export const routes: Routes = [
   { path: 'edit-vehicle', component: EditVehicleFormComponent },
   { path: 'drivers', component: DriverComponent },
   { path: 'create-driver', component: AddDriverFormComponent },
+  { path: 'edit-driver', component: EditDriverFormComponent },
 ];

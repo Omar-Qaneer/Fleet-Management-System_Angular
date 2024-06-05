@@ -1,0 +1,18 @@
+<div class="form-container" >
+  <form class="example-form" [formGroup]="driverForm"  (ngSubmit)="editDriver()">
+    <mat-form-field class="example-full-width">
+      <mat-label>Driver Name</mat-label>
+      <input matInput placeholder="Ex. 345777" formControlName="driverName">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Phone Number</mat-label>
+      <input matInput placeholder="Ex. Car" formControlName="phoneNumber">
+    </mat-form-field>
+
+    <div class="button-wrapper">
+      <button mat-raised-button color="primary" > Update </button>
+    </div>
+  </form>
+  </div>
+

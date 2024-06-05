@@ -79,7 +79,6 @@ export class VehicleComponent implements OnInit {
           vehicle: vehicle
         }
       };
-      console.log(navigationExtras);
       this.router.navigate(['/edit-vehicle'],navigationExtras);
 
 
