@@ -49,7 +49,7 @@ export class EditVehicleFormComponent {
     var Gvar = new GVAR();
     Gvar.DicOfDic.Tags={
       "VehicleID" : this.vehicle.VehicleID.toString(),
-      "VehicleNumber" : vehicleData.vehicleNumber,
+      "VehicleNumber" : vehicleData.vehicleNumber.toString(),
       "VehicleType" : vehicleData.vehicleType
     }
     console.log(Gvar);

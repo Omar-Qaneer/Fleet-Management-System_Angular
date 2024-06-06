@@ -49,7 +49,7 @@ export class EditDriverFormComponent {
     Gvar.DicOfDic.Tags={
       "DriverID" : this.driver.DriverID.toString(),
       "DriverName" : driverData.driverName,
-      "PhoneNumber" : driverData.phoneNumber
+      "PhoneNumber" : driverData.phoneNumber.toString()
     }
     console.log(Gvar);
     this.driverService.editDriver(Gvar).subscribe({
