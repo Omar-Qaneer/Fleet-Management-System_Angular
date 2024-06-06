@@ -44,7 +44,7 @@
     <ng-container matColumnDef="Action">
       <th mat-header-cell *matHeaderCellDef> Action </th>
       <td mat-cell *matCellDef="let element">
-        <button mat-raised-button color="primary"  routerLink="/create-routeHistory">Add Route History</button>
+        <button mat-raised-button color="primary"  (click)="addRouteHistory(element.VehicleID)">Add Route History</button>
       </td>
     </ng-container>
 

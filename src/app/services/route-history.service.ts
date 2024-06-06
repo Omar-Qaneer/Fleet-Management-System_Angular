@@ -11,5 +11,6 @@ export class RouteHistoryService {
   constructor(private http:HttpClient) { }
 
   getRoutesHistories=(id: number):Observable<GVAR>=> this.http.get<GVAR>(`https://localhost:7051/api/RouteHistory/${id}`)
+  addRouteHistory=(Gvar: GVAR):Observable<GVAR>=> this.http.post<GVAR>("https://localhost:7051/api/RouteHistory",Gvar)
 
 }

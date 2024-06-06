@@ -1,0 +1,38 @@
+<div class="form-container" >
+  <form class="example-form" [formGroup]="routeHistoryForm"  (ngSubmit)="addVehicleInfo()">
+    <mat-form-field class="example-full-width">
+      <mat-label>Vehicle Direction</mat-label>
+      <input matInput placeholder="Ex. 100" formControlName="vehicleDirection">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Status</mat-label>
+      <input matInput placeholder="Ex. 0 or 1" formControlName="status">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Vehicle Speed</mat-label>
+      <input matInput placeholder="Ex. 40 mph" formControlName="vehicleSpeed">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Address</mat-label>
+      <input matInput placeholder="Ex. 655 Main St, Anytown" formControlName="address">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Latitude</mat-label>
+      <input matInput placeholder="Ex. 37.7749" formControlName="latitude">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Longitude</mat-label>
+      <input matInput placeholder="Ex. -122.4194" formControlName="longitude">
+    </mat-form-field>
+
+    <div class="button-wrapper">
+      <button mat-raised-button color="primary" > Add </button>
+    </div>
+  </form>
+  </div>
+

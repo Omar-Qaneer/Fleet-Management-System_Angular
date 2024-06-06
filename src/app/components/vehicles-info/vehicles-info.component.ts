@@ -1,5 +1,5 @@
 import { Component, OnInit, inject,AfterViewInit, ViewChild } from '@angular/core';
-import { RouterOutlet, RouterLink } from '@angular/router';
+import { RouterOutlet, RouterLink, NavigationExtras, Router } from '@angular/router';
 import { VehiclesService } from '../../services/vehicles.service';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
@@ -21,6 +21,8 @@ export class VehiclesInfoComponent {
   dataSource = new MatTableDataSource<NewVehiclesDetails>(this.ELEMENT_DATA);
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
+
+  constructor(private router: Router){}
 
 
   vehicles: VehicleInfoDetails[]=[];
@@ -54,6 +56,16 @@ export class VehiclesInfoComponent {
       }
     });
   }
+
+  addRouteHistory(vehicleID: number) {
+    const navigationExtras: NavigationExtras = {
+      state: {
+        vehicleID: vehicleID
+      }
+    };
+    this.router.navigate(['/create-routeHistory'],navigationExtras);
+    }
+
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
