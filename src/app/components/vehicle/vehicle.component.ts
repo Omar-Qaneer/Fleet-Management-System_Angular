@@ -84,6 +84,15 @@ export class VehicleComponent implements OnInit {
 
     }
 
+    showRoutesHistories(vehicleID: number) {
+      const navigationExtras: NavigationExtras = {
+        state: {
+          vehicleID: vehicleID
+        }
+      };
+      this.router.navigate(['/show-routesHistory'],navigationExtras);
+      }
+
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }

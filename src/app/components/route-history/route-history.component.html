@@ -1,0 +1,71 @@
+<div class="mat-elevation-z8 table-container  ">
+  <div fxLayout="row" fxLayoutAlign="end center" class="button-wrapper">
+    <button mat-raised-button color="primary"  routerLink="/vehicles">Back to Vehicles</button>
+  </div>
+  <table mat-table [dataSource]="dataSource">
+
+    <!-- RouteHistoryID Column -->
+    <ng-container matColumnDef="RouteHistoryID">
+      <th mat-header-cell *matHeaderCellDef> RouteHistory ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.RouteHistoryID}} </td>
+    </ng-container>
+
+    <!-- VehicleID Column -->
+    <ng-container matColumnDef="VehicleID">
+      <th mat-header-cell *matHeaderCellDef> Vehicle ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.VehicleID}} </td>
+    </ng-container>
+
+    <!-- VehicleDirection Column -->
+    <ng-container matColumnDef="VehicleDirection">
+      <th mat-header-cell *matHeaderCellDef> Vehicle Direction </th>
+      <td mat-cell *matCellDef="let element"> {{element.VehicleDirection}} </td>
+    </ng-container>
+
+    <!-- Status Column -->
+    <ng-container matColumnDef="Status">
+      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <td mat-cell *matCellDef="let element"> {{element.Status}} </td>
+    </ng-container>
+
+    <!-- VehicleSpeed Column -->
+    <ng-container matColumnDef="GPSSpeed">
+      <th mat-header-cell *matHeaderCellDef> GPS Speed </th>
+      <td mat-cell *matCellDef="let element"> {{element.VehicleSpeed}} </td>
+    </ng-container>
+
+    <!-- GPSSTime Column -->
+    <ng-container matColumnDef="GPSSTime">
+      <th mat-header-cell *matHeaderCellDef> GPSSTime </th>
+      <td mat-cell *matCellDef="let element"> {{element.Epoch}} </td>
+    </ng-container>
+
+    <!-- Address Column -->
+    <ng-container matColumnDef="Address">
+      <th mat-header-cell *matHeaderCellDef> Address </th>
+      <td mat-cell *matCellDef="let element"> {{element.Address}} </td>
+    </ng-container>
+
+    <!-- Latitude Column -->
+    <ng-container matColumnDef="Latitude">
+      <th mat-header-cell *matHeaderCellDef> Latitude </th>
+      <td mat-cell *matCellDef="let element"> {{element.Latitude}} </td>
+    </ng-container>
+
+    <!-- Longitude Column -->
+    <ng-container matColumnDef="Longitude">
+      <th mat-header-cell *matHeaderCellDef> Longitude </th>
+      <td mat-cell *matCellDef="let element"> {{element.Longitude}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>
+<router-outlet></router-outlet>
+
