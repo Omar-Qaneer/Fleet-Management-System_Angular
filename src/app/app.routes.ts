@@ -9,6 +9,7 @@ import { EditDriverFormComponent } from './components/edit-driver-form/edit-driv
 import { GeofenceComponent } from './components/geofence/geofence.component';
 import { AddVehicleInfoFormComponent } from './components/add-vehicle-info-form/add-vehicle-info-form.component';
 import { RouteHistoryComponent } from './components/route-history/route-history.component';
+import { VehiclesInfoComponent } from './components/vehicles-info/vehicles-info.component';
 
 export const routes: Routes = [
   { path: 'vehiclesInfo', component: VehicleInfoComponent },
@@ -21,5 +22,7 @@ export const routes: Routes = [
   { path: 'edit-driver', component: EditDriverFormComponent },
   { path: 'geofence', component: GeofenceComponent },
   { path: 'show-routesHistory', component: RouteHistoryComponent },
+  { path: 'vehiclesDetails', component: VehiclesInfoComponent },
+
 
 ];
