@@ -1,4 +1,5 @@
 import { Component, OnInit, inject,AfterViewInit, ViewChild } from '@angular/core';
+import { RouterOutlet, RouterLink } from '@angular/router';
 import { VehiclesService } from '../../services/vehicles.service';
 import { VehicleDetails } from '../../types/vehicleDetails';
 import { Observable } from 'rxjs';
@@ -7,6 +8,7 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { GVAR } from '../../../GVAR';
 import { DialogOverviewComponent } from '../dialog-overview/dialog-overview.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatDialog } from '@angular/material/dialog';
 import { VehicleInfo } from '../../types/vehicleInfo';
 
@@ -14,7 +16,7 @@ import { VehicleInfo } from '../../types/vehicleInfo';
 @Component({
   selector: 'app-vehicleInfo',
   standalone: true,
-  imports: [MatTableModule, MatPaginatorModule,MatButtonModule],
+  imports: [MatTableModule, MatPaginatorModule,MatButtonModule,RouterOutlet,RouterLink,FlexLayoutModule],
   templateUrl: './vehicleInfo.component.html',
   styleUrl: './vehicleInfo.component.css'
 })

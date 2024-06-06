@@ -1,0 +1,28 @@
+<div class="form-container" >
+  <form class="example-form" [formGroup]="vehicleInfoForm"  (ngSubmit)="addVehicleInfo()">
+    <mat-form-field class="example-full-width">
+      <mat-label>Vehicle ID</mat-label>
+      <input matInput placeholder="Ex. 100" formControlName="vehicleID">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Driver ID</mat-label>
+      <input matInput placeholder="Ex. 12" formControlName="driverID">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Vehicle Make</mat-label>
+      <input matInput placeholder="Ex. Toyota" formControlName="vehicleMake">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Vehicle Model</mat-label>
+      <input matInput placeholder="Ex. Camry" formControlName="vehicleModel">
+    </mat-form-field>
+
+    <div class="button-wrapper">
+      <button mat-raised-button color="primary" > Add </button>
+    </div>
+  </form>
+  </div>
+
